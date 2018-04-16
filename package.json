@@ -1,0 +1,24 @@
+{
+  "name": "react-cards",
+  "version": "1.0.0",
+  "description": "Library for building card games in React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "magic": "webpack"
+  },
+  "author": "MCSpross",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^16.3.10",
+    "@types/react-dom": "^16.0.5",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "ts-loader": "^4.2.0",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
+  },
+  "devDependencies": {
+    "typescript": "^2.8.1"
+  }
+}

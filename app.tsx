@@ -2,33 +2,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import FirstComponent from "./src/FirstComponent";
-import UserComponent from "./src/UserComponent";
-import UserInterface from "./src/UserInterface";
+import CardLayout from "./src/CardLayout";
+import {Deck} from "./src/Deck"
 
-let users = [];
-users.push({
-  name: "FlimFlam",
-  age: 22
-})
-users.push({
-  name: "Pete",
-  age: 55
-})
-users.push({
-  name: "Jan",
-  age: 180
-})
-
-let usersList = users.map(function(user, index){
-    return <li key={ index }><UserComponent {...user} /></li>
+let deck = Deck.Create();
+let cardsList = Deck.Shuffle(deck, 10).map(function(card, index){
+    return <CardLayout {...card} />
   });
 
 ReactDOM.render(
 <div>
-<h1>Hello, Welcome to the first page Biznatch</h1>
-<FirstComponent/>
-<ul> {usersList} </ul>
+{/* <CardLayout name="King" abbreviation="K" suite="Spade" value={10} /> */}
+<div> {cardsList} </div>
 </div>,
   document.getElementById("root")
 );

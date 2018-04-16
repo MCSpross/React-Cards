@@ -79,7 +79,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nconst FirstComponent_1 = __webpack_require__(/*! ./src/FirstComponent */ \"./src/FirstComponent.tsx\");\r\nconst UserComponent_1 = __webpack_require__(/*! ./src/UserComponent */ \"./src/UserComponent.tsx\");\r\nlet users = [];\r\nusers.push({\r\n    name: \"FlimFlam\",\r\n    age: 22\r\n});\r\nusers.push({\r\n    name: \"Pete\",\r\n    age: 55\r\n});\r\nusers.push({\r\n    name: \"Jan\",\r\n    age: 180\r\n});\r\nlet usersList = users.map(function (user, index) {\r\n    return React.createElement(\"li\", { key: index },\r\n        React.createElement(UserComponent_1.default, Object.assign({}, user)));\r\n});\r\nReactDOM.render(React.createElement(\"div\", null,\r\n    React.createElement(\"h1\", null, \"Hello, Welcome to the first page Biznatch\"),\r\n    React.createElement(FirstComponent_1.default, null),\r\n    React.createElement(\"ul\", null,\r\n        \" \",\r\n        usersList,\r\n        \" \")), document.getElementById(\"root\"));\r\n\n\n//# sourceURL=webpack:///./app.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nconst CardLayout_1 = __webpack_require__(/*! ./src/CardLayout */ \"./src/CardLayout.tsx\");\r\nconst Deck_1 = __webpack_require__(/*! ./src/Deck */ \"./src/Deck.ts\");\r\nlet deck = Deck_1.Deck.Create();\r\nlet cardsList = Deck_1.Deck.Shuffle(deck, 10).map(function (card, index) {\r\n    return React.createElement(CardLayout_1.default, Object.assign({}, card));\r\n});\r\nReactDOM.render(React.createElement(\"div\", null,\r\n    React.createElement(\"div\", null,\r\n        \" \",\r\n        cardsList,\r\n        \" \")), document.getElementById(\"root\"));\r\n\n\n//# sourceURL=webpack:///./app.tsx?");
 
 /***/ }),
 
@@ -335,27 +335,27 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./src/FirstComponent.tsx":
-/*!********************************!*\
-  !*** ./src/FirstComponent.tsx ***!
-  \********************************/
+/***/ "./src/CardLayout.tsx":
+/*!****************************!*\
+  !*** ./src/CardLayout.tsx ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nlet Logo = \"https://logrocket.com/img/logo.png\";\r\nclass FirstComponent extends React.Component {\r\n    render() {\r\n        return (React.createElement(\"div\", null,\r\n            React.createElement(\"h1\", null, \"A Simple React Component Example with Typescript\"),\r\n            React.createElement(\"div\", null,\r\n                React.createElement(\"img\", { src: Logo })),\r\n            React.createElement(\"p\", null, \"I am a componet which shows the logrocket logo. For more info on Logrocket, please visit Https://logrocket.com\")));\r\n    }\r\n}\r\nexports.default = FirstComponent;\r\n\n\n//# sourceURL=webpack:///./src/FirstComponent.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nclass CardLayout extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", { className: \"card\" },\r\n            React.createElement(\"div\", { className: \"card-front-bg\" },\r\n                React.createElement(Badges, { abbreviation: this.props.abbreviation, suite: this.props.suite }))));\r\n    }\r\n}\r\nexports.default = CardLayout;\r\nfunction Badges(props) {\r\n    let suiteSVGPath = GetSuiteSVGPath(props.suite);\r\n    return (React.createElement(\"div\", null,\r\n        React.createElement(\"div\", { className: \"badge-top\" },\r\n            React.createElement(\"b\", null,\r\n                \" \",\r\n                props.abbreviation),\r\n            React.createElement(\"img\", { src: suiteSVGPath, alt: props.suite })),\r\n        React.createElement(\"div\", { className: \"badge-bottom\" },\r\n            React.createElement(\"b\", null,\r\n                \" \",\r\n                props.abbreviation),\r\n            React.createElement(\"img\", { src: suiteSVGPath, alt: props.suite }))));\r\n}\r\nfunction GetSuiteSVGPath(suite) {\r\n    switch (suite.toLowerCase()) {\r\n        case \"spade\":\r\n            return \"./assets/SVG/Spade.svg\";\r\n        case \"club\":\r\n            return \"./assets/SVG/Club.svg\";\r\n        case \"heart\":\r\n            return \"./assets/SVG/Heart.svg\";\r\n        case \"diamond\":\r\n            return \"./assets/SVG/Diamond.svg\";\r\n        default:\r\n            return \"\";\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack:///./src/CardLayout.tsx?");
 
 /***/ }),
 
-/***/ "./src/UserComponent.tsx":
-/*!*******************************!*\
-  !*** ./src/UserComponent.tsx ***!
-  \*******************************/
+/***/ "./src/Deck.ts":
+/*!*********************!*\
+  !*** ./src/Deck.ts ***!
+  \*********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nclass UserComponent extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", null,\r\n            \"Hello, \",\r\n            this.props.name,\r\n            \". You are \",\r\n            this.props.age,\r\n            \" years old.\"));\r\n    }\r\n}\r\nexports.default = UserComponent;\r\n\n\n//# sourceURL=webpack:///./src/UserComponent.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Deck;\r\n(function (Deck) {\r\n    let suites = [\"Spade\", \"Heart\", \"Club\", \"Diamond\"];\r\n    let cards = [\r\n        { value: 1, name: \"Ace\", abbreviation: \"A\" },\r\n        { value: 2, name: \"Two\", abbreviation: \"2\" },\r\n        { value: 3, name: \"Three\", abbreviation: \"3\" },\r\n        { value: 4, name: \"Four\", abbreviation: \"4\" },\r\n        { value: 5, name: \"Five\", abbreviation: \"5\" },\r\n        { value: 6, name: \"Six\", abbreviation: \"6\" },\r\n        { value: 7, name: \"Seven\", abbreviation: \"7\" },\r\n        { value: 8, name: \"Eight\", abbreviation: \"8\" },\r\n        { value: 9, name: \"Nine\", abbreviation: \"9\" },\r\n        { value: 10, name: \"Ten\", abbreviation: \"10\" },\r\n        { value: 10, name: \"Jack\", abbreviation: \"J\" },\r\n        { value: 10, name: \"Queen\", abbreviation: \"Q\" },\r\n        { value: 10, name: \"King\", abbreviation: \"K\" },\r\n    ];\r\n    function Create() {\r\n        let deck = [];\r\n        for (let suite of suites) {\r\n            for (let card of cards) {\r\n                deck.push({\r\n                    suite: suite,\r\n                    name: card.name,\r\n                    abbreviation: card.abbreviation,\r\n                    value: card.value\r\n                });\r\n            }\r\n        }\r\n        return deck;\r\n    }\r\n    Deck.Create = Create;\r\n    function Shuffle(deck, shuffleDepth) {\r\n        console.log(`Shuffle ${deck.length} ${shuffleDepth}`);\r\n        //split Deck\r\n        let splitPoint = Math.floor(deck.length * 0.5 + ((deck.length * 0.2 * Math.random()) - (deck.length * 0.1)));\r\n        let h1 = deck.slice(0, splitPoint);\r\n        let h2 = deck.slice(splitPoint);\r\n        //shuffle back together\r\n        let shuffle = [];\r\n        while (h2.length > 0 && h1.length > 0) {\r\n            if (Math.random() > 0.5 && h2.length > 0) {\r\n                shuffle.push(h2.pop());\r\n            }\r\n            else if (h1.length > 0) {\r\n                shuffle.push(h1.pop());\r\n            }\r\n        }\r\n        shuffle = shuffle.concat(h1, h2);\r\n        if (shuffleDepth > 1) {\r\n            shuffle = Shuffle(shuffle, shuffleDepth - 1);\r\n        }\r\n        return shuffle;\r\n    }\r\n    Deck.Shuffle = Shuffle;\r\n})(Deck = exports.Deck || (exports.Deck = {}));\r\n\n\n//# sourceURL=webpack:///./src/Deck.ts?");
 
 /***/ }),
 

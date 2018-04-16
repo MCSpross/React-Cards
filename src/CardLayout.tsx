@@ -9,10 +9,42 @@ super(props);
 }
   render() {
     return (
-            <div className="card-front-bg" >
-                <b> {this.props.abbreviation}</b>
-                <i> {this.props.suite} </i>
-            </div>
+      <div className="card">
+        <div className="card-front-bg" >
+          <Badges abbreviation={this.props.abbreviation} suite={this.props.suite} />
+        </div>
+      </div>
                 );
+  }
+}
+
+function Badges(props){
+  let suiteSVGPath = GetSuiteSVGPath(props.suite);
+  return (
+    <div>
+      <div className="badge-top">
+        <b> {props.abbreviation}</b>
+        <img src={suiteSVGPath} alt={props.suite} />
+      </div>
+      <div className="badge-bottom">
+        <b> {props.abbreviation}</b>
+        <img src={suiteSVGPath} alt={props.suite} />
+      </div>
+    </div>
+  );
+}
+
+function GetSuiteSVGPath(suite: string){
+  switch(suite.toLowerCase()){
+    case "spade":
+      return "./assets/SVG/Spade.svg";
+    case "club":
+      return "./assets/SVG/Club.svg";
+    case "heart":
+      return "./assets/SVG/Heart.svg";
+    case "diamond":
+      return "./assets/SVG/Diamond.svg";
+    default:
+      return "";
   }
 }

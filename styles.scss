@@ -1,0 +1,36 @@
+.card{
+  float: left;
+}
+
+.card-front-bg{
+  width: 250px;
+  height: 350px;
+  border-radius: 16px;
+  background: #F7F5EE;
+  border-style: solid;
+  border-width: 2px;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  list-style-type: none
+}
+
+%badge-shared{
+  font-size: 24px;
+  text-align: center;
+  width: 20px;
+  position: absolute;
+}
+
+.badge-top{
+  @extend %badge-shared;
+  left: 10px;
+  top: 10px;
+}
+
+.badge-bottom{
+  @extend %badge-shared;
+  transform: rotate(180deg);
+  right: 10px;
+  bottom: 10px;
+}
